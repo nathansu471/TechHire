@@ -1,0 +1,85 @@
+{
+  "info": {
+    "name": "JobBoard API",
+    "description": "Spring Boot Job Board Backend — Test all endpoints (Company + Job)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Companies",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/companies"
+      }
+    },
+    {
+      "name": "Search Company by Name",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/companies/search?name=Acme",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "companies", "search"],
+          "query": [{ "key": "name", "value": "Acme" }]
+        }
+      }
+    },
+    {
+      "name": "Create Company",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Piggytree\",\n  \"website\": \"https://piggytree.com\",\n  \"location\": \"Madison, WI\",\n  \"logoUrl\": null\n}"
+        },
+        "url": "{{baseUrl}}/api/companies"
+      }
+    },
+    {
+      "name": "Delete Company (id=1)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/api/companies/1"
+      }
+    },
+    {
+      "name": "Get All Jobs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/jobs"
+      }
+    },
+    {
+      "name": "Get Active Jobs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/jobs/active"
+      }
+    },
+    {
+      "name": "Search Job by Title",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/jobs/search/title?title=Engineer"
+      }
+    },
+    {
+      "name": "Filter Jobs by Salary Range",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/jobs/filter/salary?min=80000&max=120000"
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ]
+}
